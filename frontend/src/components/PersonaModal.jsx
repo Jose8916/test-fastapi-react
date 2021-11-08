@@ -6,8 +6,9 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
   const [edad, setEdad] = useState("");
   const [fechaNacimiento, setFechaNacimiento] = useState("");
 
+
   useEffect(() => {
-    const getPersonas = async () => {
+    const getPersona = async () => {
       const requestOptions = {
         method: "GET",
         headers: {
@@ -18,7 +19,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
       const response = await fetch(`/api/personas/${id}`, requestOptions);
 
       if (!response.ok) {
-        setErrorMessage("No se pudo obtener las personas");
+        setErrorMessage("Could not get the persona");
       } else {
         const data = await response.json();
         setNombre(data.nombre);
@@ -29,7 +30,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
     };
 
     if (id) {
-      getPersonas();
+      getPersona();
     }
   }, [id, token]);
 
@@ -57,7 +58,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
     };
     const response = await fetch("/api/personas", requestOptions);
     if (!response.ok) {
-      setErrorMessage("Algo fallo al crear la persona");
+      setErrorMessage("No se pudo crear la persona correctamente");
     } else {
       cleanFormData();
       handleModal();
@@ -81,7 +82,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
     };
     const response = await fetch(`/api/personas/${id}`, requestOptions);
     if (!response.ok) {
-      setErrorMessage("Hubo una falla al momento de actualizar la persona");
+      setErrorMessage("Something went wrong when updating persona");
     } else {
       cleanFormData();
       handleModal();
@@ -104,7 +105,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
               <div className="control">
                 <input
                   type="text"
-                  placeholder="Ingrese el nombre"
+                  placeholder="Ingrese Nombre"
                   value={nombre}
                   onChange={(e) => setNombre(e.target.value)}
                   className="input"
@@ -117,7 +118,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
               <div className="control">
                 <input
                   type="text"
-                  placeholder="Ingrese apellidos"
+                  placeholder="Ingrese Apellidos"
                   value={apellidos}
                   onChange={(e) => setApellidos(e.target.value)}
                   className="input"
@@ -130,7 +131,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
               <div className="control">
                 <input
                   type="number"
-                  placeholder="Ingrese la edad"
+                  placeholder="Ingrese Edad"
                   value={edad}
                   onChange={(e) => setEdad(e.target.value)}
                   className="input"
@@ -141,8 +142,8 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
               <label className="label">Fecha de Nacimiento</label>
               <div className="control">
                 <input
-                  type="text"
-                  placeholder="Ingrese fecha de nacimiento"
+                  type="email"
+                  placeholder="Ingrese Fecha de Nacimiento"
                   value={fechaNacimiento}
                   onChange={(e) => setFechaNacimiento(e.target.value)}
                   className="input"

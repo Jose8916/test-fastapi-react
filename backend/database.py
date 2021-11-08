@@ -1,10 +1,10 @@
-import sqlalchemy as sa
+import sqlalchemy as _sql
 import sqlalchemy.ext.declarative as declarative
 import sqlalchemy.orm as orm
 
 DATABASE_URL = "sqlite:///./database.db"
 
-engine = sa.create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+engine = _sql.create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 
 SessionLocal = orm.sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

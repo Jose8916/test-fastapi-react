@@ -38,11 +38,11 @@ const Login = () => {
       <form className="box" onSubmit={handleSubmit}>
         <h1 className="title has-text-centered">Login</h1>
         <div className="field">
-          <label className="label">Email Address</label>
+          <label className="label">Email</label>
           <div className="control">
             <input
               type="email"
-              placeholder="Enter email"
+              placeholder="Ingrese Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="input"
@@ -51,11 +51,11 @@ const Login = () => {
           </div>
         </div>
         <div className="field">
-          <label className="label">Password</label>
+          <label className="label">Clave</label>
           <div className="control">
             <input
               type="password"
-              placeholder="Enter password"
+              placeholder="Ingrese Clave"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="input"
@@ -64,7 +64,7 @@ const Login = () => {
           </div>
         </div>
         <ErrorMessage message={errorMessage} />
-        <br />
+
         <button className="button is-primary" type="submit">
           Login
         </button>

@@ -21,7 +21,7 @@ const App = () => {
     const data = await response.json();
 
     if (!response.ok) {
-      console.log("Algo no anda funcionando bien");
+      console.log("something messed up");
     } else {
       setMessage(data.message);
     }
