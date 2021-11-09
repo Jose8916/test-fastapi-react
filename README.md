@@ -7,6 +7,13 @@ Luego de registro, se puede hacer el crud de las personas
 
 Herramientas
 
+Para crear la BD:
+
+ejecutar python y el siguiente script
+
+import services
+services.create_database()
+
 SQLAlchemy
 SQLite
 uvicorn
