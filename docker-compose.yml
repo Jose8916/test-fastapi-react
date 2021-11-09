@@ -1,21 +1,17 @@
-version: '3.9'
+version: '3.8'
+
 services:
     backend:
-      build: ./backend
-      command: python app/main.py
-      tty: true
-      volumes:
-        - ./backend:/main
-      environment:
-        PYTHONPATH: .
-        DATABASE_URL: 'sqlite:///./database.db'
-      depends_on:
-        - "postgres"
+        build: 
+            context: "./backend"
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
 
     frontend:
-      build: ./frontend
-      stdin_open: true
-      volumes:
-        - './frontend/src:/app'
-      depends on:
-        - server
+        stdin_open: true
+        build:
+            context: "./frontend"
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"

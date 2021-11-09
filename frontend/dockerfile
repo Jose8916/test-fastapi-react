@@ -1,13 +1,7 @@
 FROM NODE:14-slim
 
-WORKDIR /src/app
+COPY . .
 
-ADD . /app
+EXPOSE 3000
 
-COPY ./package.json ./
-
-RUN npm install
-
-EXPOSE 8000
-
-CMD ["npm", "start"]
+ENTRYPOINT ["npm", "start"]
