@@ -1,7 +1,7 @@
-FROM NODE:14-slim
+FROM node:16-alpine3.12
 
 COPY . .
 
 EXPOSE 3000
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["yarn", "start"]

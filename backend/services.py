@@ -1,6 +1,6 @@
 import fastapi 
 import fastapi.security as security
-import jwt
+import jwt as jwt
 import sqlalchemy.orm as orm
 import passlib.hash as hash
 

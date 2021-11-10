@@ -16,7 +16,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
           Authorization: "Bearer " + token,
         },
       };
-      const response = await fetch(`/api/personas/${id}`, requestOptions);
+      const response = await fetch(`http://localhost:8000/api/personas/${id}`, requestOptions);
 
       if (!response.ok) {
         setErrorMessage("Could not get the persona");
@@ -56,7 +56,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
         fechaNacimiento: fechaNacimiento,
       }),
     };
-    const response = await fetch("/api/personas", requestOptions);
+    const response = await fetch("http://localhost:8000/api/personas", requestOptions);
     if (!response.ok) {
       setErrorMessage("No se pudo crear la persona correctamente");
     } else {
@@ -80,7 +80,7 @@ const PersonaModal = ({ active, handleModal, token, id, setErrorMessage }) => {
         fechaNacimiento: fechaNacimiento,
       }),
     };
-    const response = await fetch(`/api/personas/${id}`, requestOptions);
+    const response = await fetch(`http://localhost:8000/api/personas/${id}`, requestOptions);
     if (!response.ok) {
       setErrorMessage("Something went wrong when updating persona");
     } else {

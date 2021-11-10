@@ -1,6 +1,7 @@
 from typing import List
 import fastapi 
 import fastapi.security as security
+from starlette.middleware.cors import CORSMiddleware
 
 import sqlalchemy.orm as orm
 
@@ -9,6 +10,10 @@ import schemas
 
 app = fastapi.FastAPI()
 
+origins = ["http://localhost:3000"]
+
+app.add_middleware(CORSMiddleware, allow_origins=origins, allow_methods=["*"], allow_headers=["*"])
+
 
 @app.post("/api/users")
 async def create_user(
@@ -16,7 +21,7 @@ async def create_user(
 ):
     db_user = await services.get_user_by_email(user.email, db)
     if db_user:
-        raise fastapi.HTTPException(status_code=400, detail="Email already in use")
+        raise fastapi.HTTPException(status_code=400, detail="Email ya se encuentra en uso")
 
     user = await services.create_user(user, db)
 

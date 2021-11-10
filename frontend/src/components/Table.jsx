@@ -25,7 +25,7 @@ const Table = () => {
         Authorization: "Bearer " + token,
       },
     };
-    const response = await fetch(`/api/personas/${id}`, requestOptions);
+    const response = await fetch(`http://localhost:8000/api/personas/${id}`, requestOptions);
     if (!response.ok) {
       setErrorMessage("No se pudo eliminar el registro de la persona");
     }
@@ -41,7 +41,7 @@ const Table = () => {
         Authorization: "Bearer " + token,
       },
     };
-    const response = await fetch("/api/personas", requestOptions);
+    const response = await fetch("http://localhost:8000/api/personas", requestOptions);
     if (!response.ok) {
       setErrorMessage("Something went wrong. Couldn't load the personas");
     } else {

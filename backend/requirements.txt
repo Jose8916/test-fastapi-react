@@ -1,5 +1,0 @@
-passlib
-sqlalchemy
-fastapi
-pyjwt
-uvicorn
